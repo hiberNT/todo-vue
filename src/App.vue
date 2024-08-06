@@ -59,18 +59,12 @@ const estado = reactive({ //modulo
 <template>
   <div class="container">
     <Cabecalho :tarefas-pendentes="getTarefasPendentes().length"/>  <!--esse :tarefas-pendentes a gente tras do Cabecalho.vue dps de definir os props-->
-    <Formulario />
-    <ListaDeTarefas/>
+    <Formulario :trocar-filtro="evento => estado.filtro = evento.target.value" :tarefa-temp="estado.tarefaTemp" :edita-tarefa-temp="evento =>estado.tarefaTemp = evento.target.value" :cadastra-tarefa="cadastrarTarefa" />
+    <ListaDeTarefas :tarefas="getTarefasFiltradas()"/> 
   
   </div>
 </template>
 
-<style scoped>
 
-.done {
-  text-decoration: line-through;
-}
-
-</style>
 
 

@@ -1,6 +1,9 @@
+<script setup>
+const props = defineProps(['tarefas'])
+</script>
 <template>
     <ul class="list-group mt-4"><!--list group da aparaencia de lista-->
-        <li class="list-group-item" v-for="tarefa in  getTarefasFiltradas() ">
+        <li class="list-group-item" v-for= "tarefa in getTarefasFiltradas() ">
             <!--estou falando aqui q quando chamar por tarefa ela tras o  getTarefasFiltradas() criado no JS-->
             <input @change="evento => tarefa.finalizada = evento.target.checked" :checked="tarefa.finalizada"
                 :id="tarefa.titulo"
@@ -13,3 +16,10 @@
     </li>
 </ul>
 </template>
+<style scoped>
+
+.done {
+    text-decoration: line-through;
+}
+
+</style>
